@@ -253,6 +253,6 @@ max_speed = 70
 script = ExtResource( 3 )
 
 [node name="FlyingCreature" parent="." instance=ExtResource( 5 )]
-position = Vector2( 256, 112 )
+position = Vector2( 291, 107 )
 acceleration = 30
 max_speed = 60

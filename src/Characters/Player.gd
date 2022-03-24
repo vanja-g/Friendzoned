@@ -34,12 +34,12 @@ func get_input() -> void:
 		mov_direction +=Vector2.RIGHT
 	if Input.is_action_pressed("ui_up"):
 		mov_direction +=Vector2.UP
-	#if Input.is_action_pressed("ui_attack"):
-		#shoot()
-		
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_released("ui_attack"):
+	if Input.is_action_just_released("ui_attack"):
 		shoot()
+		
+#func _unhandled_input(event: InputEvent) -> void:
+	#if event.is_action_released("ui_attack"):
+		#shoot()
 		
 func shoot():
 	var bullet_instance = Bullet.instance()
@@ -52,6 +52,6 @@ func shoot():
 
 
 func _ready() -> void:
-	pass 
+	animated_sprite.show()
 
 
