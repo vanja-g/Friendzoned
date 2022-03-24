@@ -1,6 +1,6 @@
 extends Area2D
 
-export (int) var speed = 3
+export (int) var speed = 2
 var direction := Vector2.ZERO
 
 onready var kill_timer = $KillTimer
@@ -19,6 +19,11 @@ func _physics_process(delta: float) -> void:
 		
 		global_position += velocity
 
+func get_direction()-> Vector2:
+	return direction
+
+func destroy()-> void:
+	queue_free()
 
 func _on_KillTimer_timeout() -> void:
-	queue_free()
+	destroy()

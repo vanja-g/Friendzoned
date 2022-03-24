@@ -7,7 +7,7 @@ onready var attack: Node2D = get_node("Attack")
 
 onready var animated_sprite:AnimatedSprite = get_node("AnimatedSprite")
 
-#onready var bullet_hitbox: Area2D = get_node("Attack/Bullet/Sprite/Hitbox")
+onready var bullet_hitbox: Area2D = get_node("Attack/Bullet/Sprite/Hitbox")
 
 export (PackedScene) var Bullet
 
@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		animated_sprite.flip_h = true
 	
 	attack.rotation= mouse_direction.angle()
-	#bullet_hitbox.knockback_direction = mouse_direction
+	bullet_hitbox.knockback_direction = mouse_direction
 	
 	
 func get_input() -> void:

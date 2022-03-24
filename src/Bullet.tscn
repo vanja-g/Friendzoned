@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Bullet.gd" type="Script" id=1]
 [ext_resource path="res://Assets/pixil-frame-0.png" type="Texture" id=2]
+[ext_resource path="res://src/Hitbox.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 2.0
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 2.23607
@@ -13,6 +17,17 @@ script = ExtResource( 1 )
 position = Vector2( 0, 2 )
 scale = Vector2( 0.31, 0.3 )
 texture = ExtResource( 2 )
+
+[node name="Hitbox" type="Area2D" parent="Sprite"]
+position = Vector2( 0, -6.66667 )
+scale = Vector2( 3.22581, 3.33333 )
+collision_layer = 0
+collision_mask = 4
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox"]
+scale = Vector2( 1.13, 1.13 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
