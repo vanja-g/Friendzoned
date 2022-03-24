@@ -254,5 +254,25 @@ script = ExtResource( 3 )
 
 [node name="FlyingCreature" parent="." instance=ExtResource( 5 )]
 position = Vector2( 291, 107 )
+acceleration = 20
+max_speed = 65
+
+[node name="FlyingCreature2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 37, 225 )
 acceleration = 30
 max_speed = 60
+
+[node name="FlyingCreature3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 457, 81 )
+acceleration = 30
+max_speed = 65
+
+[node name="FlyingCreature4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 214, 231 )
+acceleration = 25
+max_speed = 65
+
+[node name="FlyingCreature5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 363, 178 )
+acceleration = 25
+max_speed = 65

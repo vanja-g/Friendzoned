@@ -4,10 +4,10 @@
 [ext_resource path="res://Assets/pixil-frame-0.png" type="Texture" id=2]
 [ext_resource path="res://src/Hitbox.gd" type="Script" id=3]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=26]
 radius = 2.0
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=27]
 radius = 2.23607
 
 [node name="Bullet" type="Area2D"]
@@ -27,10 +27,10 @@ script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hitbox"]
 scale = Vector2( 1.13, 1.13 )
-shape = SubResource( 2 )
+shape = SubResource( 26 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 27 )
 
 [node name="KillTimer" type="Timer" parent="."]
 wait_time = 1.2

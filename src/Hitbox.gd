@@ -6,7 +6,7 @@ export(int) var knockback_force: int = 100
 
 
 onready var knockback_direction: = Vector2.ZERO
-onready var bullet:Area2D = get_node("../../")
+onready var bullet: = get_node("../../")
 
 onready var collision_shape: CollisionShape2D = get_child(0)
 

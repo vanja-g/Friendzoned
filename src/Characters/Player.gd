@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		animated_sprite.flip_h = true
 	
 	attack.rotation= mouse_direction.angle()
-	bullet_hitbox.knockback_direction = mouse_direction
+	#.knockback_direction = mouse_direction
 	
 	
 func get_input() -> void:
