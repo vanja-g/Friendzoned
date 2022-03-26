@@ -10,6 +10,7 @@ export(int) var hp: int = 100 setget set_hp
 signal hp_changed(new_hp)  
 
 onready var state_machine: Node = get_node("FiniteStateMachine")
+onready var animated_sprite:AnimatedSprite= get_node("AnimatedSprite")
 
 var mov_direction:Vector2= Vector2.ZERO
 var velocity: Vector2 = Vector2.ZERO
@@ -24,7 +25,7 @@ func move() -> void:
 	velocity = velocity.clamped(max_speed)
 
 func _ready() -> void:
-	pass 
+	animated_sprite.show()
 
 func set_hp(new_hp:int)->void:
 	hp = new_hp

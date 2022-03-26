@@ -1,6 +1,6 @@
 extends Area2D
 
-export (int) var speed = 2
+export (float) var speed = 1.5
 var direction := Vector2.ZERO
 
 onready var kill_timer = $KillTimer

@@ -5,7 +5,7 @@ signal player_fired_bullet(bullet, position, direction)
 
 onready var attack: Node2D = get_node("Attack")
 
-onready var animated_sprite:AnimatedSprite = get_node("AnimatedSprite")
+#onready var animated_sprite:AnimatedSprite = get_node("AnimatedSprite")
 
 onready var bullet_hitbox: Area2D = get_node("Attack/Bullet/Sprite/Hitbox")
 
@@ -51,7 +51,7 @@ func shoot():
 	
 
 
-func _ready() -> void:
-	animated_sprite.show()
+#func _ready() -> void:
+	#animated_sprite.show()
 
 
