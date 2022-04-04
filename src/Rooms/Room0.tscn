@@ -86,3 +86,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0"]
 position = Vector2( 208, 143 )
 shape = SubResource( 3 )
+
+[node name="Center" parent="." index="5"]
+position = Vector2( 211, 95 )

@@ -20,9 +20,7 @@ func _process(delta: float) -> void:
 	elif mouse_direction.x < 0 and not animated_sprite.flip_h:
 		animated_sprite.flip_h = true
 	
-	attack.rotation= mouse_direction.angle()
-	#.knockback_direction = mouse_direction
-	
+	attack.rotation= mouse_direction.angle()	
 	
 func get_input() -> void:
 	mov_direction = Vector2.ZERO	
@@ -36,10 +34,6 @@ func get_input() -> void:
 		mov_direction +=Vector2.UP
 	if Input.is_action_just_released("ui_attack"):
 		shoot()
-		
-#func _unhandled_input(event: InputEvent) -> void:
-	#if event.is_action_released("ui_attack"):
-		#shoot()
 		
 func shoot():
 	var bullet_instance = Bullet.instance()
