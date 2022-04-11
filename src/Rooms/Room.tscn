@@ -832,6 +832,34 @@ points = PoolVector2Array( 0, 0, 16, 0, 15.6796, 6.3755, 0, 6.3755 )
 37/shape_one_way_margin = 0.0
 37/shapes = [  ]
 37/z_index = 0
+38/name = "full tilemap.png 38"
+38/texture = ExtResource( 2 )
+38/tex_offset = Vector2( 0, 0 )
+38/modulate = Color( 1, 1, 1, 1 )
+38/region = Rect2( 48, 64, 16, 16 )
+38/tile_mode = 0
+38/occluder_offset = Vector2( 0, 0 )
+38/navigation_offset = Vector2( 0, 0 )
+38/shape_offset = Vector2( 0, 0 )
+38/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+38/shape_one_way = false
+38/shape_one_way_margin = 0.0
+38/shapes = [  ]
+38/z_index = 0
+39/name = "full tilemap.png 39"
+39/texture = ExtResource( 2 )
+39/tex_offset = Vector2( 0, 0 )
+39/modulate = Color( 1, 1, 1, 1 )
+39/region = Rect2( 64, 64, 16, 16 )
+39/tile_mode = 0
+39/occluder_offset = Vector2( 0, 0 )
+39/navigation_offset = Vector2( 0, 0 )
+39/shape_offset = Vector2( 0, 0 )
+39/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+39/shape_one_way = false
+39/shape_one_way_margin = 0.0
+39/shapes = [  ]
+39/z_index = 0
 
 [sub_resource type="ConvexPolygonShape2D" id=42]
 points = PoolVector2Array( 16, 7.95152, 0, 7.95152, 0, 0, 16, 0 )
@@ -914,17 +942,23 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 10.5577, 16, 9.9995 )
 [node name="Room" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="Navigation2D" type="Navigation2D" parent="."]
-
-[node name="TileMap" type="TileMap" parent="Navigation2D"]
+[node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 41 )
+cell_size = Vector2( 16, 16 )
 format = 1
 
-[node name="TileMap2" type="TileMap" parent="Navigation2D"]
+[node name="TileMap2" type="TileMap" parent="."]
 tile_set = SubResource( 44 )
+cell_size = Vector2( 16, 16 )
 format = 1
 
 [node name="Entrance" type="Node2D" parent="."]
+
+[node name="Bot" type="Node2D" parent="Entrance"]
+
+[node name="Left" type="Node2D" parent="Entrance"]
+
+[node name="Right" type="Node2D" parent="Entrance"]
 
 [node name="Doors" type="Node2D" parent="."]
 
@@ -934,4 +968,7 @@ format = 1
 
 [node name="Center" type="Position2D" parent="."]
 
+[node name="LeaveDetctor" type="Area2D" parent="."]
+
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
+[connection signal="area_entered" from="LeaveDetctor" to="." method="_on_LeaveDetctor_area_entered"]

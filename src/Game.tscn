@@ -30,12 +30,12 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="UI/HP bar"]
 
-[node name="Rooms" type="Node2D" parent="."]
+[node name="Rooms" type="Navigation2D" parent="."]
 
 [node name="Room0" parent="Rooms" instance=ExtResource( 1 )]
 
 [node name="Room" parent="Rooms" instance=ExtResource( 5 )]
-position = Vector2( 120, 0 )
+position = Vector2( 137, 23 )
 
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource( 3 )
