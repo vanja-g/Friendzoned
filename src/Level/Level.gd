@@ -6,19 +6,32 @@ const ROOMS:Dictionary={
 	2:preload("res://src/Rooms/Room1.2.tscn"),
 	3:preload("res://src/Rooms/Room1.3.tscn")
 	}
-export (int) var num_rooms =  6
+export (int) var num_rooms =  15
 var level:Array = []
 const REVERSE_DIRECTION = {"bot":"top","top":"bot","right":"left","left":"right"}
 var current_room = null
 
-func make_level() ->void:
+var positions = preload("res://src/Level/RoomGen.tscn")
+
+
+func room_positions():
+	pass
+
+func make_level(room_positions) ->void:
+	var positions = room_positions
+	var curr_position = 0
+	
 	var rng = RandomNumberGenerator.new()
 	var remaining_rooms = num_rooms
 	var start_room = ROOMS[0].instance()
 	
 	level.append(start_room)
+	
 	var to_connect:Array= [start_room]
 	add_child(start_room,true)
+	
+	#start_room.position = positions[curr_position]
+	#curr_position+=1
 	
 	current_room = start_room
 	
@@ -39,11 +52,19 @@ func make_level() ->void:
 					var next_room = ROOMS[pick_room].instance()
 					level.append(next_room)
 					add_child(next_room,true)
-					next_room.visible = false
+					
+					#next_room.position= positions[curr_position]
+					#curr_position+=1
+					
+					#next_room.visible = false
 					connect_rooms(room,next_room,directions[i-1])
 					to_connect.append(next_room)
 					remaining_rooms -=1
+					
 				to_connect.erase(room)
+	for r in level:
+		r.position = positions[curr_position]
+		curr_position+=1
 
 func connect_rooms(room1,room2,direction):
 
@@ -82,6 +103,13 @@ func fade_screen():
 	pass
 
 func _ready() -> void:
-	make_level()
+	var p = positions.instance()
+	add_child(p,true)
+	yield(get_tree().create_timer(0.3), "timeout")
+	var room_positions = p.get_positions()
+	
+	
+	
+	make_level(room_positions)
 	
 

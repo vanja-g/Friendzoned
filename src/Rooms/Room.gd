@@ -12,7 +12,6 @@ onready var door_container:Node2D = get_node("Doors")
 onready var enemy_positions_container:Node2D= get_node("EnemyPositions")
 onready var player_detector:Node2D = get_node("PlayerDetector")
 onready var center:Position2D = get_node("Center")
-
 onready var connections = {"bot":null,
 						"top":null,
 						"right":null,
@@ -25,7 +24,8 @@ onready var connections = {"bot":null,
 						"right":null,
 						"left":null}
 """
-						
+var disabled = false
+		
 func add_connection(room,direction):
 		if self.connections[direction] !=null: #Cannot override connections already made
 			return
@@ -100,7 +100,7 @@ func _on_enemy_killed()->void:
 
 func _on_PlayerDetector_body_entered(body: KinematicBody2D) -> void:
 	if visible:
-		if body is KinematicBody2D:
+		if body is KinematicBody2D and not disabled:
 			player_detector.queue_free()
 			_close_entrance()
 			_spawn_enemies()
