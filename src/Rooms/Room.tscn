@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://src/Rooms/Room.gd" type="Script" id=1]
 [ext_resource path="res://Assets/full tilemap.png" type="Texture" id=2]
@@ -867,6 +867,12 @@ points = PoolVector2Array( 16, 7.95152, 0, 7.95152, 0, 0, 16, 0 )
 [sub_resource type="ConvexPolygonShape2D" id=43]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 10.5577, 16, 9.9995 )
 
+[sub_resource type="ConvexPolygonShape2D" id=45]
+points = PoolVector2Array( 0, 0, 3.28632, 0.0875397, 3.28632, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=46]
+points = PoolVector2Array( 15.7526, 16, 11.0641, 16, 11.0641, 0, 15.7526, 0 )
+
 [sub_resource type="TileSet" id=44]
 0/name = "full tilemap.png 0"
 0/texture = ExtResource( 2 )
@@ -920,9 +926,16 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 10.5577, 16, 9.9995 )
 2/navigation_offset = Vector2( 0, 0 )
 2/shape_offset = Vector2( 0, 0 )
 2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 45 )
 2/shape_one_way = false
-2/shape_one_way_margin = 0.0
-2/shapes = [  ]
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 45 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 2/z_index = 0
 3/name = "full tilemap.png 3"
 3/texture = ExtResource( 2 )
@@ -934,9 +947,16 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 10.5577, 16, 9.9995 )
 3/navigation_offset = Vector2( 0, 0 )
 3/shape_offset = Vector2( 0, 0 )
 3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape = SubResource( 46 )
 3/shape_one_way = false
-3/shape_one_way_margin = 0.0
-3/shapes = [  ]
+3/shape_one_way_margin = 1.0
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 46 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 3/z_index = 0
 
 [node name="Room" type="Node2D"]

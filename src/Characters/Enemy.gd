@@ -29,8 +29,11 @@ func chase()->void:
 
 func _on_PathTimer_timeout() -> void:
 	if is_instance_valid(player):
-		path= navigation.get_simple_path(global_position, player.position)
+		_get_path_to_player()
 	else:
 		path_timer.stop()
 		path = []
 		mov_direction = Vector2.ZERO
+		
+func _get_path_to_player()->void:
+	path = navigation.get_simple_path(global_position, player.position)

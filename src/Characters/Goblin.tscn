@@ -1,110 +1,99 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=30 format=2]
 
-[ext_resource path="res://src/Characters/Character.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/heroes/knight/knight_idle_spritesheet.png" type="Texture" id=2]
-[ext_resource path="res://Assets/heroes/knight/knight_run_spritesheet.png" type="Texture" id=3]
-[ext_resource path="res://src/Characters/Player.gd" type="Script" id=4]
-[ext_resource path="res://src/Characters/FiniteStateMachine.gd" type="Script" id=5]
-[ext_resource path="res://src/Bullet.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/effects (new)/enemy_afterdead_explosion_anim_spritesheet.png" type="Texture" id=7]
-[ext_resource path="res://Assets/pixil-frame-0.png" type="Texture" id=9]
-
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 7 )
-region = Rect2( 16, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 7 )
-region = Rect2( 32, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 7 )
-region = Rect2( 48, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 2 )
-region = Rect2( 16, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 2 )
-region = Rect2( 32, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 2 )
-region = Rect2( 48, 0, 16, 16 )
+[ext_resource path="res://src/Characters/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/effects (new)/enemy_afterdead_explosion_anim_spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://src/Characters/Goblin.gd" type="Script" id=3]
+[ext_resource path="res://Assets/enemies/goblin/goblin_idle_spritesheet.png" type="Texture" id=4]
+[ext_resource path="res://Assets/enemies/goblin/goblin_run_spritesheet.png" type="Texture" id=5]
+[ext_resource path="res://src/Characters/GoblinFSM.gd" type="Script" id=6]
 
 [sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 2 )
-region = Rect2( 64, 0, 16, 16 )
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 2 )
+atlas = ExtResource( 4 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 4 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 4 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 4 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 4 )
 region = Rect2( 80, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 2 )
 region = Rect2( 16, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 2 )
 region = Rect2( 32, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 2 )
 region = Rect2( 48, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 3 )
-region = Rect2( 64, 0, 16, 16 )
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 5 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 5 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 5 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 5 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 5 )
 region = Rect2( 80, 0, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=13]
+[sub_resource type="SpriteFrames" id=17]
 animations = [ {
-"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
-"loop": true,
-"name": "dead",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "Explosion",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
 "name": "Move",
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=25]
-radius = 4.0
-height = 6.0
+[sub_resource type="CircleShape2D" id=18]
+radius = 5.0
 
-[sub_resource type="CircleShape2D" id=26]
-radius = 2.0
-
-[sub_resource type="CircleShape2D" id=27]
-radius = 2.23607
-
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=19]
 resource_name = "Dead"
-length = 0.75
-step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -112,10 +101,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.55 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ "Idle", "dead" ]
+"values": [ "Idle", "Explosion" ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("AnimatedSprite:frame")
@@ -124,10 +113,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.55, 0.6, 0.65, 0.7 ),
+"times": PoolRealArray( 0, 0.5, 0.6, 0.7, 0.8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 4, 0, 1, 2, 3 ]
+"values": [ 0, 0, 1, 2, 3 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("AnimatedSprite:visible")
@@ -136,10 +125,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ true, false, true, false, true, true ]
+"values": [ true, false, true, false, true ]
 }
 tracks/3/type = "method"
 tracks/3/path = NodePath(".")
@@ -148,7 +137,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.75 ),
+"times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -156,9 +145,9 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=20]
 resource_name = "Hurt"
-length = 0.6
+length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -181,7 +170,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 4 ]
+"values": [ 0 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("AnimatedSprite:visible")
@@ -190,13 +179,13 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false, true, false, true, false, true ]
+"values": [ true, false, true, false, true ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=21]
 resource_name = "Idle"
 length = 0.6
 loop = true
@@ -225,7 +214,7 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=22]
 resource_name = "Move"
 length = 0.6
 loop = true
@@ -254,7 +243,7 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=23]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
@@ -266,7 +255,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ "Idle" ]
+"values": [ "Move" ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("AnimatedSprite:frame")
@@ -278,7 +267,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 1 ]
+"values": [ 0 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("AnimatedSprite:visible")
@@ -290,68 +279,38 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ true ]
 }
 
-[node name="Player" instance=ExtResource( 1 )]
-collision_layer = 2
-collision_mask = 5
-script = ExtResource( 4 )
-Bullet = ExtResource( 6 )
+[node name="Goblin" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+acceleration = 30
+max_speed = 75
+projectile_speed = 180
 
 [node name="FiniteStateMachine" parent="." index="0"]
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="AnimatedSprite" parent="." index="1"]
-visible = false
-frames = SubResource( 13 )
-animation = "Idle"
-frame = 1
+frames = SubResource( 17 )
+animation = "Move"
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2( 0, 1 )
-shape = SubResource( 25 )
+position = Vector2( 0, -1 )
+shape = SubResource( 18 )
 
-[node name="Attack" type="Node2D" parent="." index="3"]
+[node name="AnimationPlayer" parent="." index="3"]
+anims/Dead = SubResource( 19 )
+anims/Hurt = SubResource( 20 )
+anims/Idle = SubResource( 21 )
+anims/Move = SubResource( 22 )
+anims/RESET = SubResource( 23 )
 
-[node name="Bullet" type="Area2D" parent="Attack" index="0"]
-position = Vector2( 6, 0 )
+[node name="PathTimer" parent="." index="4"]
+wait_time = 0.2
 
-[node name="Sprite" type="Sprite" parent="Attack/Bullet" index="0"]
-position = Vector2( 0, 2 )
-scale = Vector2( 0.31, 0.3 )
-texture = ExtResource( 9 )
-
-[node name="Hitbox" type="Area2D" parent="Attack/Bullet/Sprite" index="0"]
-position = Vector2( 0, -6.66667 )
-scale = Vector2( 3.22581, 3.33333 )
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack/Bullet/Sprite/Hitbox" index="0"]
-scale = Vector2( 1.13, 1.13 )
-shape = SubResource( 26 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack/Bullet" index="1"]
-shape = SubResource( 27 )
-
-[node name="KillTimer" type="Timer" parent="Attack/Bullet" index="2"]
+[node name="AttackTimer" type="Timer" parent="." index="5"]
 wait_time = 1.2
 one_shot = true
 
-[node name="AnimationPlayer" parent="." index="4"]
-anims/Dead = SubResource( 23 )
-anims/Hurt = SubResource( 24 )
-anims/Idle = SubResource( 14 )
-anims/Move = SubResource( 17 )
-anims/RESET = SubResource( 16 )
-
-[node name="Camera2D" type="Camera2D" parent="." index="5"]
-current = true
-zoom = Vector2( 2, 2 )
-
-[node name="AttackTimer" type="Timer" parent="." index="6"]
-wait_time = 0.3
-
-[connection signal="timeout" from="Attack/Bullet/KillTimer" to="Attack/Bullet" method="_on_KillTimer_timeout"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]

@@ -9,8 +9,10 @@ onready var attack: Node2D = get_node("Attack")
 
 onready var bullet_hitbox: Area2D = get_node("Attack/Bullet/Sprite/Hitbox")
 
-export (PackedScene) var Bullet
+onready var attack_timer:Timer = $AttackTimer
 
+export (PackedScene) var Bullet
+var can_attack:bool = true
 
 func _process(delta: float) -> void:
 	var mouse_direction :Vector2 = (get_global_mouse_position()- global_position).normalized()
@@ -36,11 +38,15 @@ func get_input() -> void:
 		shoot()
 		
 func shoot():
-	var bullet_instance = Bullet.instance()
-	bullet_instance.global_position = attack.global_position
-	var target = get_global_mouse_position()
-	var dir_to_mouse = attack.global_position.direction_to(target).normalized()
-	emit_signal("player_fired_bullet", bullet_instance, attack.global_position, dir_to_mouse)
+	if can_attack:
+		var bullet_instance = Bullet.instance()
+		bullet_instance.global_position = attack.global_position
+		var target = get_global_mouse_position()
+		var dir_to_mouse = attack.global_position.direction_to(target).normalized()
+		emit_signal("player_fired_bullet", bullet_instance, attack.global_position, dir_to_mouse)
+		can_attack = false
+		attack_timer.start()
+		
 	
 	
 
@@ -49,3 +55,7 @@ func shoot():
 	#animated_sprite.show()
 
 
+
+
+func _on_AttackTimer_timeout() -> void:
+	can_attack = true
